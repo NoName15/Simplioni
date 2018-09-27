@@ -1,0 +1,17 @@
+{
+  "strings": {
+    "taglist": "**`Liste des étiquettes disponibles.`**\n```{tags}```",
+    "enabledms": "Veuillez activer les messages privés sur ce serveur et executer cette commande à nouveau pour voir la liste des étiquettes.",
+    "tagexists": "Cette étiquette existe déjà.",
+    "reservedtagname": "Ce nom d'étiquette est réservé à l'interne.",
+    "tagnotfound": "Impossible de trouver cette étiquette.",
+    "cantfinduser": "Impossible de trouver cet utilisateur par mention ou identifiant.",
+    "usernotinblacklist": "Cet utilisateur n'est pas dans la liste noire.",
+    "addedtoblacklist": "🚷 L'utilisateur {user.tag} (`{user.id}`) a été ajouté à la liste noire par {author.tag} (`{author.id}`).",
+    "removedfromblacklist": "☑ L'utilisateur {user.tag} (`{user.id}`) a été retiré de la liste noire par {author.tag} (`{author.id}`). Durée totale: {duration}",
+    "invalidsetting": "Clé de configuration invalide.",
+    "settingnotarray": "Cette clé de configuration n'est pas une matrice!",
+    "settingisarray": "Cette clé de configuration est une matrice. Utiliser les actions `add` et `remove`.",
+    "cantfindinarray": "Impossible de trouver cette valeur dans la matrice."
+  }
+}

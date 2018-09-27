@@ -7,16 +7,16 @@ bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
 });
-bot.on('message', Sal => { // By Salto7#4595
+bot.on('message', Sal => { // By me7#4595
   if(Sal.content === 'c:bot') { //هنا تغير البرفيكس
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
-  .setThumbnail(client.user.avatarURL)
-  .addField('Bot Name', client.user.username, true)
-  .setFooter(client.user.tag, client.user.avatarURL, true)
-  .addField('Bot Tag', client.user.discriminator, true)
-  .addField('Bot id', client.user.id, true)
-  .addField('Create Bot At', client.user.createdAt, true)
+  .setThumbnail(bot.user.avatarURL)
+  .addField('Bot Name', bot.user.username, true)
+  .setFooter(bot.user.tag, bot.user.avatarURL, true)
+  .addField('Bot Tag', bot.user.discriminator, true)
+  .addField('Bot id', bot.user.id, true)
+  .addField('Create Bot At', bot.user.createdAt, true)
   Sal.channel.sendEmbed(embed);
 }
 });

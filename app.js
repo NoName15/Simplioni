@@ -7,6 +7,24 @@ bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
 });
+bot.on('message', message => {
+var prefix = "c:";
+
+    if (message.content === prefix + "date") {
+        if (!message.channel.guild) return message.reply('** This command only for servers **');  
+        var currentTime = new Date(),
+            Year = currentTime.getFullYear(),
+            Month = currentTime.getMonth() + 1,
+            Day = currentTime.getDate();
+
+            var Date15= new Discord.RichEmbed()
+            .setTitle("**「  Date - التاريخ 」 **")
+            .setColor('RANDOM')
+            .setTimestamp()
+            .setDescription( "「"+ Day + "-" + Month + "-" + Year + "」")
+             message.channel.sendEmbed(Date15);
+    }
+});
 bot.on("message", async message => {
         if(!message.channel.guild) return;
  var prefix= "c:";
@@ -92,7 +110,8 @@ c:calculateadd is an adding calculator.
 c:8ball is a fun command where you can ask the magic 8 ball a question and it will reply.
  c:invite makes the bot DM you an invite link to invite the bot to your server. 
  And c:objection, c:holdit and c:takethat are AA commands. 
-c:server gives you every peice of information you need to know about your server ")
+c:server gives you every peice of information you need to know about your server
+,c:date gives you a full date .And many updates are coming :) ")
   }
 
   if (command === "objection") {

@@ -115,7 +115,7 @@ bot.on('message', message => {
        })// حقوق الفا كودز & عبود
    }
 });// حقوق الفا كودز & عبود
-client.on('messageUpdate', (oldMessage, newMessage) => {
+bot.on('messageUpdate', (oldMessage, newMessage) => {
     if(Swears.some(word => newMessage.content.toLowerCase().includes(word))) {// حقوق الفا كودز & عبود
         if(oldMessage.member.hasPermission('ADMINISTRATOR')) return;
         oldMessage.delete();// حقوق الفا كودز & عبود

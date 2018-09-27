@@ -7,6 +7,23 @@ bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
 });
+bot.on('guildMemberRemove', Sal => { //By me7#4595
+  var embed = new Discord.RichEmbed()
+  .setAuthor(Sal.user.username, Sal.user.avatarURL)
+  .setThumbnail(Sal.user.avatarURL)
+  .setImage('https://previews.123rf.com/images/dxinerz/dxinerz1509/dxinerz150901337/45612790-bye-goodbye-icon.jpg') //هنا حط الصوره الي تبيها
+  .setTitle('خرج عضو')
+  .setDescription('الله معك مع السلامه')
+  .addField('``ايدي العضو``:',"" +  Sal.user.id, true)
+  .addField('``تاق العضو``', Sal.user.discriminator, true)
+  .addField('``تم الانشاء في``', Sal.user.createdAt, true)
+  .addField(' 👤 الان ',`**[ ${Sal.guild.memberCount} ]**`,true)
+  .setColor('RED')
+  .setFooter(Sal.guild.name, Sal.guild.iconURL, true)
+  var channel =Sal.guild.channels.find('name', 'general') // هنا حط اسم الروم الي تبيه يكتب فيه
+  if (!channel) return;
+  channel.send({embed : embed});
+  });
 bot.on('message', message => {
    
     let args = message.content.split(' ').slice(1).join(' ');
@@ -120,7 +137,7 @@ bot.on('message', msg => {
   }
   if (command === "help") {
     msg.channel.sendMessage(":calling: It seems you have requested help. Check your DMs.");
-    msg.author.sendMessage("Thanks for using the help command this command will help you know the current commands.c:ping and c:pong are commands used to check if the bot is online.c:say allows you to make the bot say whatever you want it to say.c:calculateadd is an adding calculator.c:8ball is a fun command where you can ask the magic 8 ball a question and it will reply.c:invite makes the bot DM you an invite link to invite the bot to your server. And c:objection, c:holdit and c:takethat are AA commands. c:server gives you every peice of information you need to know about your server,c:date gives you a full date .And many updates are coming ")
+    msg.author.sendMessage("Thanks for using the help command this command will help you know the current commands.c:ping and c:pong are commands used to check if the bot is online.c:say allows you to make the bot say whatever you want it to say.c:calculateadd is an adding calculator.c:8ball is a fun command where you can ask the magic 8 ball a question and it will reply.c:invite makes the bot DM you an invite link to invite the bot to your server. And c:objection, c:holdit and c:takethat are AA commands. c:server gives you every peice of information you need to know about your server,c:date gives you a full date .c:bc allows you to send every user a costum message,and leave and join messages are also available. ")
   }
 
   if (command === "objection") {

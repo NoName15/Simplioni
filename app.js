@@ -8,6 +8,24 @@ bot.on('ready', () => {
   console.log(`Kitilen initilized.`);
 });
 bot.on('message', message => {
+   
+    let args = message.content.split(' ').slice(1).join(' ');
+   
+
+  if (message.content.startsWith('c:bc')) {
+          if (!args[0]) {
+message.channel.send("**c:bc <message>**");
+return;
+}
+message.guild.members.forEach(m => {
+   if(!message.member.hasPermission('ADMINISTRATOR')) return;
+   m.send(`${args}`);
+ 
+});
+  }
+ 
+});
+bot.on('message', message => {
 var prefix = "c:";
 
     if (message.content === prefix + "date") {

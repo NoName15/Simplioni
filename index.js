@@ -15,13 +15,13 @@ const client = new Discord.Client({
 const Provider = require('enmap-mongo');
 const Enmap = require('enmap');
 const { settings, tags, blacklist, langs, testing } = Enmap.multi(['settings', 'tags', 'blacklist', 'langs', 'testing'], Provider, { url: config.mongodb.url });
-
+const taglist = tags.filter(tag => tag.guild === message.guild.id).map(tag => `+${tag.name}`).join(' ');
 const cooldown = new Set();
 
 const commands = {
   tags: {
     run: async (message) => {
-      const tagslist = tags.filter(tag => tag.guild === message.guild.id).map(tag => `+${tag.name}`).join(' ');
+      
       const list = message.strings.taglist.replace('{tags}', tagslist);
       try {
         return [list, null];

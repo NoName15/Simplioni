@@ -84,7 +84,15 @@ bot.on('message', msg => {
   }
   if (command === "help") {
     msg.channel.sendMessage(":calling: It seems you have requested help. Check your DMs.");
-    msg.author.sendMessage("Thanks for using the help command, this command will help you know the current commands. c:ping and c:pong are commands used to check if the bot is online. c:say allows you to make the bot say whatever you want it to say. c:calculateadd is an adding calculator. c:8ball is a fun command where you can ask the magic 8 ball a question and it will reply. c:invite makes the bot DM you an invite link to invite the bot to your server. And c:objection, c:holdit and c:takethat are AA commands.")
+    msg.author.sendMessage("Thanks for using the help command
+ this command will help you know the current commands.
+c:ping and c:pong are commands used to check if the bot is online.
+ c:say allows you to make the bot say whatever you want it to say.
+c:calculateadd is an adding calculator.
+c:8ball is a fun command where you can ask the magic 8 ball a question and it will reply.
+ c:invite makes the bot DM you an invite link to invite the bot to your server. 
+ And c:objection, c:holdit and c:takethat are AA commands. 
+c:server gives you every peice of information you need to know about your server ")
   }
 
   if (command === "objection") {

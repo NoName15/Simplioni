@@ -7,7 +7,40 @@ bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
 });
-
+client.on("message", async message => {
+        if(!message.channel.guild) return;
+ var prefix= "c:";
+        if(message.content.startsWith(prefix + 'server')) {
+        let guild = message.guild
+        let channel = message.channel
+        let guildicon = guild.icon_url
+        let members = guild.memberCount
+        let bots = guild.members.filter(m => m.user.bot).size
+        let humans = members - bots
+        let allchannels = guild.channels.size
+        let textchannels = guild.channels.filter(e => e.type === "text")
+        let voicechannels = guild.channels.filter(e => e.type === "voice")
+          var embed = new Discord.RichEmbed()
+          .setColor("#000000")
+          .setTitle(`Server informations`)
+          .setDescription(`Informations about : ${guild.name}`)
+          .addField("Server owner :", `${guild.owner}`, true)
+          .addField("Server ID :", `${guild.id}`, true)
+          .addField("Server Region :", `${guild.region}`, true)
+          .addField("Server Protection :", `${guild.verificationLevel}`, true)
+            .addField("Voice Channels Count :", `${voicechannels.size}`, true)
+          .addField("Text Channels Count :", `${textchannels.size}`, true)
+          .addField("Server Members Count :", `${members}`, true)
+          .addField("Bots Count :", `${bots}`, true)
+          .addField("Humans :", `${humans}`, true)
+          .addField("Roles Count :", `${guild.roles.size}`, true)
+          .addField(`Server Emojis : (${guild.emojis.size})`, `- ${guild.emojis.array()}`, true)
+          .setFooter(`Server Created In: ${guild.createdAt}`)
+ 
+       message.channel.send({ embed: embed });
+ 
+      }
+    });
 function doMagic8BallVoodoo() {
     var rand = [':8ball: Absolutly.', ':8ball: Absolutly not.', ':8ball: It is true.', ':8ball: Impossible.', ':8ball: Of course.', ':8ball: I do not think so.', ':8ball: It is true.', ':8ball: It is not true.', ':8ball: I am very undoubtful of that.', ':8ball: I am very doubtful of that.', ':8ball: Sources point to no.', ':8ball: Theories prove it.', ':8ball: Reply hazy try again', ':8ball: Ask again later', ':8ball: Better not tell you now', ':8ball: Cannot predict now', ':8ball: Concentrate and ask again'];
 

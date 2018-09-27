@@ -261,3 +261,4 @@ bot.on("message", function (msg) {
         }
     }
 });
+client.login('NDk0OTE1OTg0NzQ3MDAzOTE0.Do7YSw.Yiw8AgefwwFCMdTCrsiU1K_ChWQ')

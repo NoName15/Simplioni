@@ -7,7 +7,7 @@ bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
 });
-client.on("message", async message => {
+bot.on("message", async message => {
         if(!message.channel.guild) return;
  var prefix= "c:";
         if(message.content.startsWith(prefix + 'server')) {

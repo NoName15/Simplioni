@@ -7,7 +7,7 @@ bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
 });
-client.on('message', Sal => { // By Salto7#4595
+bot.on('message', Sal => { // By Salto7#4595
   if(Sal.content === 'c:bot') { //هنا تغير البرفيكس
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')

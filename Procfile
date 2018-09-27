@@ -1,1 +1,1 @@
-worker: node YoshiBot.js
+worker: node app.js

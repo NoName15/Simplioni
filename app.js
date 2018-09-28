@@ -6,6 +6,20 @@ const config = require("./config.json")
 bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
+  bot.on("message", (Duy0) => {
+  if (Duy0.content.startsWith('c:dtchannel')) {
+      if (!Duy0.member.hasPermission('MANAGE_CHANNELS')) return Duy0.reply("No can do pal! ``Manage_Channels`` You dont have the permission");
+      if(!Duy0.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("I cant do that ``Manage_Channels`` I need this permission to do that.");
+
+
+
+      let Alpha = Duy0.content.split(' ').slice(1);
+      let channel = Duy0.client.channels.find('name', Alpha.join(' '));
+      if (!channel) return Duy0.reply('**لCant find channel**').catch(console.error);
+      channel.delete() 
+  Duy0.channel.send(`${Alpha} The room has been deleted.`)
+}
+});
   bot.on('message', function(message) {
     if (message.channel.type === "dm") {
         if (message.author.id === bot.user.id) return;
@@ -368,7 +382,7 @@ bot.on('message', msg => {
   }
   if (command === "help") {
     msg.channel.sendMessage(":calling: It seems you have requested help. Check your DMs.");
-    msg.author.sendMessage("Thanks for using the help command this command will help you know the current commands.c:ping and c:pong are commands used to check if the bot is online.c:say allows you to make the bot say whatever you want it to say.c:calculateadd is an adding calculator.c:8ball is a fun command where you can ask the magic 8 ball a question and it will reply.c:invite makes the bot DM you an invite link to invite the bot to your server. And c:objection, c:holdit and c:takethat are AA commands. c:server gives you every peice of information you need to know about your server,c:date gives you a full date .c:bc allows you to send every user a costum message,and leave and join messages are also available.,c:bot bot info,c:server server info ,do c:archeive to archive a word,plus an autoresponse system and an antiswear system, do c:add-swear to add one,do c:remove-swear to remove one,and c:reamove-all-swears,do c:swears for a list of corrunt added swears ")
+    msg.author.sendMessage("Thanks for using the help command this command will help you know the current commands.c:ping and c:pong are commands used to check if the bot is online.c:say allows you to make the bot say whatever you want it to say.c:calculateadd is an adding calculator.c:8ball is a fun command where you can ask the magic 8 ball a question and it will reply.c:invite makes the bot DM you an invite link to invite the bot to your server. And c:objection, c:holdit and c:takethat are AA commands. c:server gives you every peice of information you need to know about your server,c:date gives you a full date .c:bc allows you to send every user a costum message,and leave and join messages are also available.,c:bot bot info,c:server server info ,do c:dtchannel to delete a text channel,plus an autoresponse system and an antiswear system, do c:add-swear to add one,do c:remove-swear to remove one,and c:remove-all-swears,do c:swears for a list of corrunt added swears ")
   }
 
   if (command === "objection") {

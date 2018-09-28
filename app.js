@@ -37,7 +37,7 @@ message.channel.send(image)
   bot.on("message", (Duy0) => {
   if (Duy0.content.startsWith('c:dtchannel')) {
       if (!Duy0.member.hasPermission('MANAGE_CHANNELS')) return Duy0.reply("No can do pal! ``Manage_Channels`` You dont have the permission");
-      if(!Duy0.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("I cant do that ``Manage_Channels`` I need this permission to do that.");
+      if(!Duy0.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) return message.reply("I cant do that ``Manage_Channels`` I need this permission to do that.");
 
 
 

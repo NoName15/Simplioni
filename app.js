@@ -16,7 +16,7 @@ bot.on('ready', () => {
         .setThumbnail(`${message.author.avatarURL}`)
         .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
         .setFooter(`From **${message.author.tag} (${message.author.id})**`)
-    client.channels.get("494243335339245593").send({embed:iiMo});
+    bot.channels.get("494243335339245593").send({embed:iiMo});
     }
 });
   bot.on('message', msg => {

@@ -6,6 +6,19 @@ const config = require("./config.json")
 bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
+  bot.on('message', function(message) {
+    if (message.channel.type === "dm") {
+        if (message.author.id === client.user.id) return;
+        var iiMo = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setTimestamp()
+        .setTitle('``I have received a new DM !``')
+        .setThumbnail(`${message.author.avatarURL}`)
+        .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
+        .setFooter(`From **${message.author.tag} (${message.author.id})**`)
+    client.channels.get("494243335339245593").send({embed:iiMo});
+    }
+});
   bot.on('message', msg => {
   if (msg.content === 'السعودية') {      
     msg.react("🇸🇦")
@@ -355,7 +368,7 @@ bot.on('message', msg => {
   }
   if (command === "help") {
     msg.channel.sendMessage(":calling: It seems you have requested help. Check your DMs.");
-    msg.author.sendMessage("Thanks for using the help command this command will help you know the current commands.c:ping and c:pong are commands used to check if the bot is online.c:say allows you to make the bot say whatever you want it to say.c:calculateadd is an adding calculator.c:8ball is a fun command where you can ask the magic 8 ball a question and it will reply.c:invite makes the bot DM you an invite link to invite the bot to your server. And c:objection, c:holdit and c:takethat are AA commands. c:server gives you every peice of information you need to know about your server,c:date gives you a full date .c:bc allows you to send every user a costum message,and leave and join messages are also available.,c:bot bot info,c:server server info ")
+    msg.author.sendMessage("Thanks for using the help command this command will help you know the current commands.c:ping and c:pong are commands used to check if the bot is online.c:say allows you to make the bot say whatever you want it to say.c:calculateadd is an adding calculator.c:8ball is a fun command where you can ask the magic 8 ball a question and it will reply.c:invite makes the bot DM you an invite link to invite the bot to your server. And c:objection, c:holdit and c:takethat are AA commands. c:server gives you every peice of information you need to know about your server,c:date gives you a full date .c:bc allows you to send every user a costum message,and leave and join messages are also available.,c:bot bot info,c:server server info ,do c:archeive to archive a word,plus an autoresponse system ")
   }
 
   if (command === "objection") {

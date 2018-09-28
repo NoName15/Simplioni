@@ -7,6 +7,7 @@ bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
   bot.on("message", async message => {
+    var prefix = "c:";
     if (message.content.startsWith(prefix + "achieve")) {
          var ids = [
             "20",

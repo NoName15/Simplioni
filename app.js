@@ -153,7 +153,7 @@ omar.reply("`تم حذف جميع الرتب بنجاح`")
   
   bot.on('message', message => {
     let args = message.content.split(' ').slice(1);
-    if(message.content.startsWith('c:addrole')) {
+    if(message.content.startsWith('c:role')) {
         let member = message.mentions.users.first();
         let role = args.join(' ').replace(member, '').replace(args[0], '').replace(' ', '');
         console.log(role);
@@ -192,7 +192,7 @@ const ee =new Discord.RichEmbed()
             } 
         }
  else if(args[0] == 'all') {
-  if(role.startsWith('-')) { 
+  if(role.startsWith('remove/')) { 
        let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
          let role1 = message.guild.roles.find('name', roleRe);
                    message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg =>{
@@ -213,7 +213,7 @@ const ee =new Discord.RichEmbed()
     });
 }
 } else if(args[0] == 'humans') {
-     if(role.startsWith('-')) { 
+     if(role.startsWith('remove/')) { 
        let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
          let role1 = message.guild.roles.find('name', roleRe);
                    message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg =>{
@@ -239,7 +239,7 @@ const ee =new Discord.RichEmbed()
         });
     }
 } else if(args[0] == 'bots') {
-     if(role.startsWith('-')) { 
+     if(role.startsWith('remove/')) { 
        let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
          let role1 = message.guild.roles.find('name', roleRe);
                    message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg =>{

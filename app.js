@@ -158,7 +158,7 @@ omar.reply("`تم حذف جميع الرتب بنجاح`")
         let role = args.join(' ').replace(member, '').replace(args[0], '').replace(' ', '');
         console.log(role);
         if(member) {
-              if(role.startsWith('-')) {
+              if(role.startsWith('remove/')) {
                 let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
                 console.log(roleRe);
                 let role1 = message.guild.roles.find('name', roleRe);

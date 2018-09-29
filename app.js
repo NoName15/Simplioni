@@ -174,7 +174,7 @@ const ee =new Discord.RichEmbed()
                 .setFooter('Requested By '+message.author.username,message.author.avatarURL)
                 .setColor('BLACK')
                  message.channel.send(e)
-            } else if(!role.startsWith('-')) {
+            } else if(!role.startsWith('remove/')) {
                 let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
                 let role1 = message.guild.roles.find('name', roleRe);
 const ee =new Discord.RichEmbed()
@@ -183,7 +183,7 @@ const ee =new Discord.RichEmbed()
         if(!role1) return message.channel.send(ee);                message.guild.member(member).addRole(role1);
                 const e = new Discord.RichEmbed()
                 
-                .setDescription(':white_check_mark:** Changed Roles For **'+member+'**,** '+'**'+'+'+role1.name+'**')
+                .setDescription(':white_check_mark:** Removed Roles For **'+member+'**,** '+'**'+'+'+role1.name+'**')
                 .setFooter('Requested By : '+message.author.username,message.author.avatarURL)
                 .setColor('BLACK')
                  message.channel.send(e)

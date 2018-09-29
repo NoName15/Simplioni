@@ -183,7 +183,7 @@ const ee =new Discord.RichEmbed()
         if(!role1) return message.channel.send(ee);                message.guild.member(member).addRole(role1);
                 const e = new Discord.RichEmbed()
                 
-                .setDescription(':white_check_mark:** Removed Roles For **'+member+'**,** '+'**'+'+'+role1.name+'**')
+                .setDescription(':white_check_mark:** Removed Roles For **'+member+'**,** '+'**'+'-'+role1.name+'**')
                 .setFooter('Requested By : '+message.author.username,message.author.avatarURL)
                 .setColor('BLACK')
                  message.channel.send(e)

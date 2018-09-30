@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 
 const config = require("./config.json")
-
+var prefix = "c:";
 bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);

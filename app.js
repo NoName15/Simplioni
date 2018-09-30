@@ -16,7 +16,7 @@ let args = message.content.split(" ").slice(1);
 if (command == "mute") {
 if (!message.channel.guild) return;
 if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
+if(!message.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
 let user = message.mentions.users.first();
 let muteRole = message.guild.roles.find("name", "muted");
 if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").then(msg => {msg.delete(5000)});
@@ -50,7 +50,7 @@ ${user} انت معاقب بميوت كتابي بسبب مخالفة القوا
 if (command == "unmute") {
 if (!message.channel.guild) return;
 if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انتا لا تملك صلاحيات").then(msg => msg.delete(5000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
+if(!message.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
 let user = message.mentions.users.first();
 let muteRole = message.guild.roles.find("name", "Muted");
 if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").then(msg => {msg.delete(5000)});

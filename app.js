@@ -6,6 +6,23 @@ var prefix = "c:";
 bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
+  bot.on('guildMemberAdd', Sal => { //By Salto7#4595
+    var embed = new Discord.RichEmbed()
+    .setAuthor(Sal.user.username, Sal.user.avatarURL)
+    .setThumbnail(Sal.user.avatarURL)
+    .setImage('http://live-timely-4jepdssgmc.time.ly/wp-content/uploads/2018/08/welcomeEvents.jpg') //هنا حط الصوره الي تبيها
+    .setTitle('عضو جديد!')
+    .setDescription('مرحبا بك بالسيرفر')
+    .addField('``ايدي العضو``:',"" +  Sal.user.id, true)
+    .addField('``تاق العضو``', Sal.user.discriminator, true)
+    .addField('``تم الانشاء في``', Sal.user.createdAt, true)
+    .addField(' 👤  انت رقم',`**[ ${Sal.guild.memberCount} ]**`,true)
+    .setColor('RANDOM')
+    .setFooter(Sal.guild.name, Sal.guild.iconURL, true)
+    var channel =Sal.guild.channels.find('name', 'join-leave') // هنا حط اسم الروم الي تبيه يكتب فيه
+    if (!channel) return;
+    channel.send({embed : embed});
+    });
   bot.on('message', message => {  
 if (message.author.boss) return;
 ;
@@ -384,39 +401,39 @@ message.channel.send(image)
         .setThumbnail(`${message.author.avatarURL}`)
         .setDescription(`\n\n\`\`\`${message.content}\`\`\``)
         .setFooter(`From **${message.author.tag} (${message.author.id})**`)
-    bot.channels.get("494243335339245593").send({embed:iiMo});
+    bot.channels.get("495636254432690177").send({embed:iiMo});
     }
 });
   bot.on('message', msg => {
-  if (msg.content === 'SaudiArabia') {      
+  if (msg.content === 'السعودية') {      
     msg.react("🇸🇦")
     msg.channel.send("🇸🇦")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'Egypt') {      
+  if (msg.content === 'مصر') {      
     msg.react("🇪🇬")
     msg.channel.send("🇪🇬")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'Morroco') {      
+  if (msg.content === 'مغرب') {      
     msg.react("🇲🇦")
     msg.channel.send("🇲🇦")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'Iraq') {      
+  if (msg.content === 'عراق') {      
     msg.react("🇮🇶")
     msg.channel.send("🇮🇶")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'Algeria') {      
+  if (msg.content === 'جزائر') {      
     msg.react("🇩🇿")
     msg.channel.send("🇩🇿")
   }
@@ -430,49 +447,49 @@ bot.on('message', msg => {
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'Tunisia') {      
+  if (msg.content === 'تونس') {      
     msg.react("🇹🇳")
     msg.channel.send("🇹🇳")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'Suria') {      
+  if (msg.content === 'سوريا') {      
     msg.react("🇸🇾")
     msg.channel.send("🇸🇾")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'Libya') {      
+  if (msg.content === 'ليبا') {      
     msg.react("🇱🇾")
     msg.channel.send("🇱🇾")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'Qatar') {      
+  if (msg.content === 'قطر') {      
     msg.react("🇶🇦")
     msg.channel.send("🇶🇦")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'Somalia') {      
+  if (msg.content === 'صومال') {      
     msg.react("🇸🇴")
     msg.channel.send("🇸🇴")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'Omen') {      
+  if (msg.content === 'عمان') {      
     msg.react("🇴🇲")
     msg.channel.send("🇴🇲")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'Moritania') {      
+  if (msg.content === 'موريطانبا') {      
     msg.react("🇲🇷")
     msg.channel.send("🇲🇷")
   }

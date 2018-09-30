@@ -15,35 +15,35 @@ command = command.slice(prefix.length);
 let args = message.content.split(" ").slice(1);
 if (command == "mute") {
 if (!message.channel.guild) return;
-if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انت لا تملك صلاحيات !! ").then(msg => msg.delete(5000));
-if(!message.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
+if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("You are not autherized to do this!! ").then(msg => msg.delete(5000));
+if(!message.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) return message.reply("The bot doesnt have enough permissions ").then(msg => msg.delete(5000));;
 let user = message.mentions.users.first();
 let muteRole = message.guild.roles.find("name", "muted");
-if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").then(msg => {msg.delete(5000)});
-if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').then(msg => {msg.delete(5000)});
+if (!muteRole) return message.reply("** Create a role called 'Muted' **").then(msg => {msg.delete(5000)});
+if (message.mentions.users.size < 1) return message.reply('** Mention an user ,Please **').then(msg => {msg.delete(5000)});
 let reason = message.content.split(" ").slice(2).join(" ");
 message.guild.member(user).addRole(muteRole);
 const muteembed = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setAuthor(`Muted!`, user.displayAvatarURL)
 .setThumbnail(user.displayAvatarURL)
-.addField("**:busts_in_silhouette:  المستخدم**",  '**[ ' + `${user.tag}` + ' ]**',true)
-.addField("**:hammer:  تم بواسطة **", '**[ ' + `${message.author.tag}` + ' ]**',true)
-.addField("**:book:  السبب**", '**[ ' + `${reason}` + ' ]**',true)
+.addField("**:busts_in_silhouette:  User**",  '**[ ' + `${user.tag}` + ' ]**',true)
+.addField("**:hammer:  By **", '**[ ' + `${message.author.tag}` + ' ]**',true)
+.addField("**:book:  Reason**", '**[ ' + `${reason}` + ' ]**',true)
 .addField("User", user, true)  
 message.channel.send({embed : muteembed});
 var muteembeddm = new Discord.RichEmbed()
 .setAuthor(`Muted!`, user.displayAvatarURL)
 .setDescription(`
-${user} انت معاقب بميوت كتابي بسبب مخالفة القوانين
+${user} You have been punished with a text mute for breaking rules!
  
- ${message.author.tag} تمت معاقبتك بواسطة
+ ${message.author.tag} Punished by
  
-[ ${reason} ] : السبب
+[ ${reason} ] : Reason
  
-اذا كانت العقوبة عن طريق الخطأ تكلم مع المسؤلين
+If you believe that this is a mistake, contact a moderator.
 `)
-.setFooter(`في سيرفر : ${message.guild.name}`)
+.setFooter(`In server : ${message.guild.name}`)
 .setColor("RANDOM")
  user.send( muteembeddm);
 }
@@ -52,22 +52,22 @@ if (!message.channel.guild) return;
 if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انتا لا تملك صلاحيات").then(msg => msg.delete(5000));
 if(!message.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
 let user = message.mentions.users.first();
-let muteRole = message.guild.roles.find("name", "Muted");
-if (!muteRole) return message.reply("** لا يوجد رتبة الميوت 'Muted' **").then(msg => {msg.delete(5000)});
-if (message.mentions.users.size < 1) return message.reply('** يجب عليك المنشن اولاً **').then(msg => {msg.delete(5000)});
+let muteRole = message.guild.roles.find("name", "muted");
+if (!muteRole) return message.reply("** Create a role named 'Muted' **").then(msg => {msg.delete(5000)});
+if (message.mentions.users.size < 1) return message.reply('** Mention a user ,Please **').then(msg => {msg.delete(5000)});
 let reason = message.content.split(" ").slice(2).join(" ");
 message.guild.member(user).removeRole(muteRole);
 const unmuteembed = new Discord.RichEmbed()
 .setColor("RANDOM")
 .setAuthor(`UnMute!`, user.displayAvatarURL)
 .setThumbnail(user.displayAvatarURL)
-.addField("**:busts_in_silhouette:  المستخدم**",  '**[ ' + `${user.tag}` + ' ]**',true)
-.addField("**:hammer:  تم بواسطة **", '**[ ' + `${message.author.tag}` + ' ]**',true)
-.addField("**:book:  السبب**", '**[ ' + `${reason}` + ' ]**',true)
+.addField("**:busts_in_silhouette:  User**",  '**[ ' + `${user.tag}` + ' ]**',true)
+.addField("**:hammer:  By **", '**[ ' + `${message.author.tag}` + ' ]**',true)
+.addField("**:book:  Reason**", '**[ ' + `${reason}` + ' ]**',true)
 .addField("User", user, true)  
 message.channel.send({embed : unmuteembed}).then(msg => msg.delete(5000));
 var unmuteembeddm = new Discord.RichEmbed()
-.setDescription(`تم فك الميوت عنك ${user}`)
+.setDescription(`Unmuted ${user}`)
 .setAuthor(`UnMute!`, user.displayAvatarURL)
 .setColor("RANDOM")
   user.send( unmuteembeddm);
@@ -90,7 +90,7 @@ if(!omar.guild.member(bot.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) re
 omar.guild.roles.forEach(m => {
 m.delete();
 });// omar jedol / Codes
-omar.reply("`تم حذف جميع الرتب بنجاح`")
+omar.reply("`Deleted all the roles succesfully!`")
 }// omar jedol / Codes
 });
   bot.on('message', message => {
@@ -225,7 +225,7 @@ omar.reply("`تم حذف جميع الرتب بنجاح`")
         let role = args.join(' ').replace(member, '').replace(args[0], '').replace(' ', '');
         console.log(role);
         if(member) {
-              if(role.startsWith('remove/')) {
+              if(role.startsWith('-')) {
                 let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
                 console.log(roleRe);
                 let role1 = message.guild.roles.find('name', roleRe);
@@ -237,11 +237,11 @@ const ee =new Discord.RichEmbed()
                 
                      const e = new Discord.RichEmbed()
                      
-                 .setDescription(':white_check_mark:** Changed Roles For **'+member+'**,** '+'**'+'-'+role1.name+'**')
+                 .setDescription(':white_check_mark:** Modified Roles For **'+member+'**,** '+'**'+'+'+role1.name+'**')
                 .setFooter('Requested By '+message.author.username,message.author.avatarURL)
                 .setColor('BLACK')
                  message.channel.send(e)
-            } else if(!role.startsWith('remove/')) {
+            } else if(!role.startsWith('-')) {
                 let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
                 let role1 = message.guild.roles.find('name', roleRe);
 const ee =new Discord.RichEmbed()
@@ -250,19 +250,19 @@ const ee =new Discord.RichEmbed()
         if(!role1) return message.channel.send(ee);                message.guild.member(member).addRole(role1);
                 const e = new Discord.RichEmbed()
                 
-                .setDescription(':white_check_mark:** Removed Roles For **'+member+'**,** '+'**'+'+'+role1.name+'**')
+                .setDescription(':white_check_mark:** Modified Roles For **'+member+'**,** '+'**'+'+'+role1.name+'**')
                 .setFooter('Requested By : '+message.author.username,message.author.avatarURL)
                 .setColor('BLACK')
                  message.channel.send(e)
             } else {
-                message.reply(`يجب عليك كتابة اسم الرتبة`);
+                message.reply(`Name a role`);
             } 
         }
  else if(args[0] == 'all') {
-  if(role.startsWith('remove/')) { 
+  if(role.startsWith('-')) { 
        let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
          let role1 = message.guild.roles.find('name', roleRe);
-                   message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg =>{
+                   message.channel.send(`Wait...`).then(msg =>{
            message.guild.members.forEach(m => {
             message.guild.member(m).removeRole(role1.id);
         });
@@ -272,7 +272,7 @@ const ee =new Discord.RichEmbed()
     if(role) {
     let role1 = message.guild.roles.find('name', role);
     if(!role1) return;
-    message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg => {
+    message.channel.send(`Wait...`).then(msg => {
         message.guild.members.forEach(m => {
             message.guild.member(m).addRole(role1);
         });
@@ -280,10 +280,10 @@ const ee =new Discord.RichEmbed()
     });
 }
 } else if(args[0] == 'humans') {
-     if(role.startsWith('remove/')) { 
+     if(role.startsWith('-')) { 
        let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
          let role1 = message.guild.roles.find('name', roleRe);
-                   message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg =>{
+                   message.channel.send(`Wait...`).then(msg =>{
            message.guild.members.forEach(m => {
             message.guild.member(m).removeRole(role1.id);
         });
@@ -298,7 +298,7 @@ const ee =new Discord.RichEmbed()
  .setDescription('I Cann’t Find This Role')
  .setFooter('Requested By : '+message.author.username,message.author.avatarURL)
         if(!role1) return message.channel.send(ee);
-        message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg => {
+        message.channel.send(`Wait...`).then(msg => {
             message.guild.members.filter(m =>m.user.bot == false).forEach(m => {
                 message.guild.member(m).addRole(role1);
             });
@@ -306,10 +306,10 @@ const ee =new Discord.RichEmbed()
         });
     }
 } else if(args[0] == 'bots') {
-     if(role.startsWith('remove/')) { 
+     if(role.startsWith('-')) { 
        let roleRe = args.join(' ').replace(member, '').replace(args[0], '').replace('-', '').replace(' ', '');
          let role1 = message.guild.roles.find('name', roleRe);
-                   message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg =>{
+                   message.channel.send(`Wait`).then(msg =>{
            message.guild.members.forEach(m => {
             message.guild.member(m).removeRole(role1.id);
         });
@@ -322,7 +322,7 @@ const ee =new Discord.RichEmbed()
  .setDescription('I Cann’t Find This Role')
  .setFooter('Requested By : '+message.author.username,message.author.avatarURL)
         if(!role1) return message.channel.send(ee);
-        message.channel.send(`الرجاء الانتظار حتى يتم الانتهاء من الامر`).then(msg => {
+        message.channel.send(`Wait...`).then(msg => {
             message.guild.members.filter(m =>m.user.bot == true).forEach(m => {
                 message.guild.member(m).addRole(role1);
             });
@@ -388,35 +388,35 @@ message.channel.send(image)
     }
 });
   bot.on('message', msg => {
-  if (msg.content === 'السعودية') {      
+  if (msg.content === 'SaudiArabia') {      
     msg.react("🇸🇦")
     msg.channel.send("🇸🇦")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'مصر') {      
+  if (msg.content === 'Egypt') {      
     msg.react("🇪🇬")
     msg.channel.send("🇪🇬")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'المغرب') {      
+  if (msg.content === 'Morroco') {      
     msg.react("🇲🇦")
     msg.channel.send("🇲🇦")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'العراق') {      
+  if (msg.content === 'Iraq') {      
     msg.react("🇮🇶")
     msg.channel.send("🇮🇶")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'الجزائر') {      
+  if (msg.content === 'Algeria') {      
     msg.react("🇩🇿")
     msg.channel.send("🇩🇿")
   }
@@ -430,49 +430,49 @@ bot.on('message', msg => {
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'تونس') {      
+  if (msg.content === 'Tunisia') {      
     msg.react("🇹🇳")
     msg.channel.send("🇹🇳")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'سوريا') {      
+  if (msg.content === 'Suria') {      
     msg.react("🇸🇾")
     msg.channel.send("🇸🇾")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'ليبيا') {      
+  if (msg.content === 'Libya') {      
     msg.react("🇱🇾")
     msg.channel.send("🇱🇾")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'قطر') {      
+  if (msg.content === 'Qatar') {      
     msg.react("🇶🇦")
     msg.channel.send("🇶🇦")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'الصومال') {      
+  if (msg.content === 'Somalia') {      
     msg.react("🇸🇴")
     msg.channel.send("🇸🇴")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'عمان') {      
+  if (msg.content === 'Omen') {      
     msg.react("🇴🇲")
     msg.channel.send("🇴🇲")
   }
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'موريتانيا') {      
+  if (msg.content === 'Moritania') {      
     msg.react("🇲🇷")
     msg.channel.send("🇲🇷")
   }
@@ -652,7 +652,7 @@ var prefix = "c:";
             Day = currentTime.getDate();
 
             var Date15= new Discord.RichEmbed()
-            .setTitle("**「  Date - التاريخ 」 **")
+            .setTitle("**「  Date 」 **")
             .setColor('RANDOM')
             .setTimestamp()
             .setDescription( "「"+ Day + "-" + Month + "-" + Year + "」")

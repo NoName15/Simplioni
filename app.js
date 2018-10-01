@@ -6,7 +6,40 @@ var prefix = "c:";
 bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
-  
+  bot.on('guildDelete', guild => {
+  bot.channels.get("495636254432690177")
+const embed = new Discord.RichEmbed()
+   .setAuthor(`Nameless Bot left a server ❎`)
+   .setDescription(`**
+Server name: __${guild.name}__
+Server id: __${guild.id}__
+Server owner: __${guild.owner}__
+Members Count: __${guild.memberCount}__
+Servers Counter : __${client.guilds.size}__**`)
+         .setColor("#f3ae10")
+         .setFooter('Simplioni Bot' , client.user.avatarURL)
+           client.channels.get("495636254432690177").send({embed});
+}
+
+);
+  bot.on('guildCreate', guild => {
+    
+  bot.channels.get("495636254432690177")
+const embed = new Discord.RichEmbed()
+   .setAuthor(`بوتك دخل سيرفر جديد مبروك ✅`)
+   .setDescription(`**
+Server name: __${guild.name}__
+Server id: __${guild.id}__
+Server owner: __${guild.owner}__
+Member Count: __${guild.memberCount}__
+Servers Counter : __${client.guilds.size}__**`)
+         .setColor("#f3ae10")
+         .addField("New Server!")
+         .setFooter('Simplioni Bot' , client.user.avatarURL)
+           client.channels.get("495636254432690177").send({embed});
+}
+
+);
      bot.on('message',function(message) {
   if (message.author.bot) return;
 var prefix = "c:";

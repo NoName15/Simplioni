@@ -23,7 +23,7 @@ ${prefix}help-en
    }
    });
  
-   bott.on("message", message => {
+   bot.on("message", message => {
  if (message.content === "c:help-ar") {
   const embed = new Discord.RichEmbed()  
       .setColor("RANDOM")

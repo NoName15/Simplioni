@@ -6,7 +6,7 @@ var prefix = "c:";
 bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
-  client.on("message", message => {
+  bot.on("message", message => {
     var prefix = "c:";
  if (message.content === "c:help") {
   const embed = new Discord.RichEmbed()  

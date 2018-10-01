@@ -14,20 +14,20 @@ bot.on('message', message => {//for dev
 
 if (message.content.startsWith(adminprefix + 'setgame')) {
   bot.user.setGame(argresult);
-    message.channel.sendMessage(${argresult} تم تغيير بلاينق البوت إلى )
+    message.channel.sendMessage(`${argresult} تم تغيير بلاينق البوت إلى`)
 } else
   if (message.content.startsWith(adminprefix + 'setname')) {
 bot.user.setUsername(argresult).then
-    message.channel.sendMessage(${argresult} : تم تغيير أسم البوت إلى)
+    message.channel.sendMessage(`${argresult} : تم تغيير أسم البوت إلى`)
 return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
 } else
   if (message.content.startsWith(adminprefix + 'setavatar')) {
 bot.user.setAvatar(argresult);
-  message.channel.sendMessage(${argresult} : تم تغير صورة البوت);
+  message.channel.sendMessage(`${argresult} : تم تغير صورة البوت`);
       } else
 if (message.content.startsWith(adminprefix + 'setT')) {
   bot.user.setGame(argresult, "https://www.twitch.tv/faresgameryt");
-    message.channel.sendMessage(تم تغيير تويتش البوت إلى  ${argresult}`)
+    message.channel.sendMessage(`تم تغيير تويتش البوت إلى  ${argresult}`)
 }
 
 

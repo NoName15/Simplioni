@@ -15,16 +15,16 @@ var prefix = "c:";
                     if (message.content === prefix + "members") {
  const embed = new Discord.RichEmbed()
 
-    .setDescription(`Members info :sparkles:
+    .setDescription(`**Members info :sparkles:
 :green_heart: online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
 :heart:  dnd:       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
 :yellow_heart:  idle:     ${message.guild.members.filter(m=>m.presence.status == 'idle').size}
 :diamond_shape_with_a_dot_inside:   membersCount:  ${message.guild.memberCount - message.guild.members.filter(m=>m.user.bot).size}
-:bulb: bots: ${message.guild.members.filter(m=>m.user.bot).size}`)
+:bulb: bots: ${message.guild.members.filter(m=>m.user.bot).size}**`)
          message.channel.send({embed});
 
     }
-      })
+      });
   bot.on('message', message => {
 if(message.content.startsWith("c:slots")) {
   let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];

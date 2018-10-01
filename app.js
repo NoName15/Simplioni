@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const PREFIX = "c:" 
+const PREFIX = "c:";
 const config = require("./config.json")
-var prefix = "c:";
+
 bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
   console.log(`Kitilen initilized.`);
@@ -10,12 +10,12 @@ bot.on('ready', () => {
   bot.user.setActivity(argresult, {type: 'WATCHING'})
      console.log('test' + argresult);
     message.channel.sendMessage(`Watching Now: **${argresult}`)
-} 
+};
 if (message.content.startsWith(PREFIX + 'setstream')) {
   bot.user.setGame(argresult, "https://www.twitch.tv/KiNg66S");
      console.log('test' + argresult);
     message.channel.sendMessage(`Streaming: **${argresult}`)
-} 
+};
 
   bot.on('guildDelete', guild => {
   bot.channels.get("495636254432690177")

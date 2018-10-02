@@ -5,7 +5,8 @@ const config = require("./config.json")
 
 bot.on('ready', () => {
   bot.user.setGame('c:help for commands');
-  console.log(`Kitilen initilized.`);
+  console.log(`Kitilen initilized.` , 'www.twitch.com/pixelstrue');
+  bot.user.setStatus('dnd');
 
 
  

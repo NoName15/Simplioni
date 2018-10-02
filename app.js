@@ -8,7 +8,48 @@ bot.on('ready', () => {
   console.log(`Kitilen initilized.`)
   bot.user.setStatus('dnd');
 
-
+bot.on('message', message => {
+    let msg = message.content.toUpperCase();
+    let cont = message.content.slice(prefix.length).split(" ");
+    let args = cont.slice(1);
+    let type = args[0];
+    let status_string = args.slice(1).join(" ");
+    if (msg.startsWith(prefix + 'STATUS')) {
+        if (!message.member.id == config.ownID) return;
+        if (!type == "twitch" || !type == "music" || !type == "watch" || !type == "game" || !type == "1" || !type == "2" || !type == "3" || !type == "4" || !type == "t" || !type == "m" || !type == "w" || !type == "g") message.channel.send("`types: 1/t/twitch - stream; 2/m/music - listening; 3/w/watch - watching; 4/g/game - playing`");
+        if (type == "twitch" || type == "t" || type == 1) {
+            bot.user.setActivity(status_string, {
+                type: "STREAMING"
+            });
+            bot.log(`${status_string} twitch`);
+            message.delete();
+        }
+        if (type == "music" || type == "m" || type == 2) {
+            bot.user.setActivity(status_string, {
+                type: "LISTENING"
+            });
+            console.log(`${status_string} listen`);
+            message.delete();
+        }
+        if (type == "watch" || type == "w" || type == 3) {
+            bot.user.setActivity(status_string, {
+                type: "WATCHING"
+            });
+            bot.log(`${status_string} watching`);
+            message.delete();
+        }
+        if (type == "game" || type == "g" || type == 4) {
+            bot.user.setActivity(status_string, {
+                type: "PLAYING"
+            });
+            console.log(`${status_string} playing`);
+            message.delete();
+        }
+        if (status_string == "" || status_string == " ") return client.user.setActivity(prefix + "help", {
+            type: "STREAMING"
+        });
+    }
+});
  
   bot.on("message", message => {
 var prefix = "c:";

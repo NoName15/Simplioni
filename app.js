@@ -7,6 +7,7 @@ bot.on('ready', () => {
   bot.user.setGame('c:help | c:invite | Bot By: DzDev99','https://www.twitch.tv/peery13');
   console.log(`Kitilen initilized.`)
   bot.user.setStatus('dnd');
+
   bot.on('message', message => {
         if (message.content.startsWith(prefix + "meme")) {
     var replys = [
@@ -309,12 +310,12 @@ c:uptime $ يعطيك الوقت اللي البوت كان شغال فيه
     .setAuthor(Sal.user.username, Sal.user.avatarURL)
     .setThumbnail(Sal.user.avatarURL)
     .setImage('http://live-timely-4jepdssgmc.time.ly/wp-content/uploads/2018/08/welcomeEvents.jpg') //هنا حط الصوره الي تبيها
-    .setTitle('عضو جديد!')
-    .setDescription('مرحبا بك بالسيرفر')
-    .addField('``ايدي العضو``:',"" +  Sal.user.id, true)
-    .addField('``تاق العضو``', Sal.user.discriminator, true)
-    .addField('``تم الانشاء في``', Sal.user.createdAt, true)
-    .addField(' 👤  انت رقم',`**[ ${Sal.guild.memberCount} ]**`,true)
+    .setTitle('عضو جديد!A new user!')
+    .setDescription('مرحبا بك بالسيرفر Welcome to the server')
+    .addField('``ايدي العضو User ID``:',"" +  Sal.user.id, true)
+    .addField('``تاق العضو User Tag``', Sal.user.discriminator, true)
+    .addField('``تم الانشاء في Created In``', Sal.user.createdAt, true)
+    .addField(' 👤  انت رقم Your Number is',`**[ ${Sal.guild.memberCount} ]**`,true)
     .setColor('RANDOM')
     .setFooter(Sal.guild.name, Sal.guild.iconURL, true)
     var channel =Sal.guild.channels.find('name', 'join-leave') // هنا حط اسم الروم الي تبيه يكتب فيه
@@ -330,55 +331,55 @@ command = command.slice(prefix.length);
 let args = message.content.split(" ").slice(1);
 if (command == "mute") {
 if (!message.channel.guild) return;
-if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("You are not autherized to do this!! ").then(msg => msg.delete(5000));
-if(!message.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) return message.reply("The bot doesnt have enough permissions ").then(msg => msg.delete(5000));;
+if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("You are not autherized to do this!! لست مخول لفعل ذلك ").then(msg => msg.delete(5000));
+if(!message.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) return message.reply("The bot doesnt have enough permissions البوت لا يمتلك الصلاحيات المناسبة").then(msg => msg.delete(5000));;
 let user = message.mentions.users.first();
 let muteRole = message.guild.roles.find("name", "muted");
-if (!muteRole) return message.reply("** Create a role called 'Muted' **").then(msg => {msg.delete(5000)});
-if (message.mentions.users.size < 1) return message.reply('** Mention an user ,Please **').then(msg => {msg.delete(5000)});
+if (!muteRole) return message.reply("** Create a role called 'Muted' انشا رول باسم'**").then(msg => {msg.delete(5000)});
+if (message.mentions.users.size < 1) return message.reply('** Mention an user ,Please اذكر شخص من فضلك**').then(msg => {msg.delete(5000)});
 let reason = message.content.split(" ").slice(2).join(" ");
 message.guild.member(user).addRole(muteRole);
 const muteembed = new Discord.RichEmbed()
 .setColor("RANDOM")
-.setAuthor(`Muted!`, user.displayAvatarURL)
+.setAuthor(`Muted! مييوتد`, user.displayAvatarURL)
 .setThumbnail(user.displayAvatarURL)
-.addField("**:busts_in_silhouette:  User**",  '**[ ' + `${user.tag}` + ' ]**',true)
-.addField("**:hammer:  By **", '**[ ' + `${message.author.tag}` + ' ]**',true)
-.addField("**:book:  Reason**", '**[ ' + `${reason}` + ' ]**',true)
-.addField("User", user, true)  
+.addField("**:busts_in_silhouette:  User الشخص**",  '**[ ' + `${user.tag}` + ' ]**',true)
+.addField("**:hammer:  By من قبل**", '**[ ' + `${message.author.tag}` + ' ]**',true)
+.addField("**:book:  Reason السبب**", '**[ ' + `${reason}` + ' ]**',true)
+.addField("User الشخص", user, true)  
 message.channel.send({embed : muteembed});
 var muteembeddm = new Discord.RichEmbed()
 .setAuthor(`Muted!`, user.displayAvatarURL)
 .setDescription(`
-${user} You have been punished with a text mute for breaking rules!
+${user} You have been punished with a text mute for breaking rules! تم معاقبتك من قبل ادمين لمخالففة القواعد
  
- ${message.author.tag} Punished by
+ ${message.author.tag} Punished by من قبل
  
-[ ${reason} ] : Reason
+[ ${reason} ] : Reason السبب
  
-If you believe that this is a mistake, contact a moderator.
+If you believe that this is a mistake, contact a moderator. هل تعتقد ان هذا خطا اتصل بادمين حالا
 `)
-.setFooter(`In server : ${message.guild.name}`)
+.setFooter(`In server في سيرفر: ${message.guild.name}`)
 .setColor("RANDOM")
  user.send( muteembeddm);
 }
 if (command == "unmute") {
 if (!message.channel.guild) return;
-if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("انتا لا تملك صلاحيات").then(msg => msg.delete(5000));
-if(!message.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
+if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("You dont have auths انت لا تملك صلاحيات").then(msg => msg.delete(5000));
+if(!message.guild.member(bot.user).hasPermission("MANAGE_MESSAGES")) return message.reply("The bot doesnt have enough perms البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
 let user = message.mentions.users.first();
 let muteRole = message.guild.roles.find("name", "muted");
-if (!muteRole) return message.reply("** Create a role named 'Muted' **").then(msg => {msg.delete(5000)});
-if (message.mentions.users.size < 1) return message.reply('** Mention a user ,Please **').then(msg => {msg.delete(5000)});
+if (!muteRole) return message.reply("** Create a role named 'Muted' انشا رول باسم**").then(msg => {msg.delete(5000)});
+if (message.mentions.users.size < 1) return message.reply('** Mention a user ,Please اذكر شخصا**').then(msg => {msg.delete(5000)});
 let reason = message.content.split(" ").slice(2).join(" ");
 message.guild.member(user).removeRole(muteRole);
 const unmuteembed = new Discord.RichEmbed()
 .setColor("RANDOM")
-.setAuthor(`UnMute!`, user.displayAvatarURL)
+.setAuthor(`UnMute! فك الميوت `, user.displayAvatarURL)
 .setThumbnail(user.displayAvatarURL)
-.addField("**:busts_in_silhouette:  User**",  '**[ ' + `${user.tag}` + ' ]**',true)
-.addField("**:hammer:  By **", '**[ ' + `${message.author.tag}` + ' ]**',true)
-.addField("**:book:  Reason**", '**[ ' + `${reason}` + ' ]**',true)
+.addField("**:busts_in_silhouette:  User المستخدم **",  '**[ ' + `${user.tag}` + ' ]**',true)
+.addField("**:hammer:  By من قبل**", '**[ ' + `${message.author.tag}` + ' ]**',true)
+.addField("**:book:  Reason السبب**", '**[ ' + `${reason}` + ' ]**',true)
 .addField("User", user, true)  
 message.channel.send({embed : unmuteembed}).then(msg => msg.delete(5000));
 var unmuteembeddm = new Discord.RichEmbed()
@@ -392,20 +393,20 @@ var unmuteembeddm = new Discord.RichEmbed()
 var prefix = "c:";
 if(omar.content.split(' ')[0] == prefix + 'dc') {  // delete all channels
 if (!omar.channel.guild) return;
-if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission**");
-if(!omar.guild.member(bot.user).hasPermission("MANAGE_CHANNELS")) return omar.reply("**I Don't Have ` MANAGE_CHANNELS ` Permission**");
+if(!omar.guild.member(omar.author).hasPermission("MANAGE_CHANNELS")) return omar.reply("**You Don't Have ` MANAGE_CHANNELS ` Permission لا تملك صلاحية**");
+if(!omar.guild.member(bot.user).hasPermission("MANAGE_CHANNELS")) return omar.reply("**I Don't Have ` MANAGE_CHANNELS ` Permission انا لا املك صلاحية**");
 omar.guild.channels.forEach(m => {
 m.delete();
 });// omar jedol / Codes
 }// omar jedol / Codes
 if(omar.content.split(' ')[0] == prefix + 'dr') { // delete all roles
 if (!omar.channel.guild) return;
-if(!omar.guild.member(omar.author).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return omar.reply("**You Don't Have ` MANAGE_ROLES_OR_PERMISSIONS ` Permission**");
-if(!omar.guild.member(bot.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return omar.reply("**I Don't Have ` MANAGE_ROLES_OR_PERMISSIONS ` Permission**");
+if(!omar.guild.member(omar.author).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return omar.reply("**You Don't Have ` MANAGE_ROLES_OR_PERMISSIONS ` Permission لا تملك صلاحية **");
+if(!omar.guild.member(bot.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return omar.reply("**I Don't Have ` MANAGE_ROLES_OR_PERMISSIONS ` Permission انا لا املك صلاحية**");
 omar.guild.roles.forEach(m => {
 m.delete();
 });// omar jedol / Codes
-omar.reply("`Deleted all the roles succesfully!`")
+omar.reply("`Deleted all the roles succesfully! تم حذف جميع الرولات`")
 }// omar jedol / Codes
 });
   bot.on('message', message => {

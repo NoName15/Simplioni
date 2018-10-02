@@ -4,7 +4,7 @@ var prefix = "c:";
 const config = require("./config.json")
 
 bot.on('ready', () => {
-  client.user.setGame('c:help | c:inv','https://www.twitch.tv/peery13');
+  bot.user.setGame('c:help | c:inv','https://www.twitch.tv/peery13');
   console.log(`Kitilen initilized.`)
   bot.user.setStatus('dnd');
 

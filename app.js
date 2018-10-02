@@ -8,28 +8,23 @@ bot.on('ready', () => {
   console.log(`Kitilen initilized.`)
   bot.user.setStatus('dnd');
   bot.on('message', message => {
-    if (message.content.startsWith(prefix + "report")) {
-            if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**Sorry, but you do not have valid permissions! If you beleive this is a error, contact an owner.**");
-            var rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-            if (!rUser) return message.channel.send("**Couldn't find user.**");
-            var rreason = args.join(" ").slice(22);
-            if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.channel.send('**I do not have the correct permissions.**').catch(console.error)
+        if (message.content.startsWith(prefix + "meme")) {
+    var replys = [
+    "https://media.giphy.com/media/xTiTnHXbRoaZ1B1Mo8/giphy.gif",
+          "https://media.giphy.com/media/hPPx8yk3Bmqys/giphy.gif",
+          "https://media.giphy.com/media/wJNGA01o1Zxp6/giphy.gif",
+          "https://media.giphy.com/media/TIyJGNK325XGciFEnI/giphy.gif",
+          "https://media.giphy.com/media/O1GhSbro4z4Dm/giphy.gif",
 
-            var reportEmbed = new Discord.RichEmbed()
-                .setDescription("Reports")
-                .setColor("#ffffff")
-                .addField("•Reported User", `${rUser} with ID: ${rUser.id}`)
-                .addField("•Reported By", `${message.author} with ID: ${message.author.id}`)
-                .addField("•Channel", message.channel)
-                .addField("•Time", message.createdAt)
-                .addField("•Reason", rreason);
+          ];
+          let gif = (replys[Math.floor(Math.random() * replys.length)])
+          var embed = new Discord.RichEmbed()
+          .setColor("RANDOM")
+          .setImage(gif)
+          .setFooter('Trump')
 
-            var reportschannel = message.guild.channels.find(`name`, "mod-log");
-            if (!reportschannel) return message.channel.send("**Can't find mod-log channel.**");
-
-
-            message.delete().catch(O_o => { });
-            reportschannel.send(reportEmbed);
+  
+  message.channel.send(embed)
   }
 });
 bot.on('message', message => {

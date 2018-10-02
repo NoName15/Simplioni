@@ -76,7 +76,7 @@ if(message.content.startsWith("c:slots")) {
 }
 });
   bot.on("message", message => {
-    var prefix = "c:";
+var prefix = "c:";
  if (message.content === "c:help") {
   const embed = new Discord.RichEmbed()  
       .setColor("RANDOM")

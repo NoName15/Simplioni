@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const PREFIX = "c:";
+
 const config = require("./config.json")
 
 bot.on('ready', () => {

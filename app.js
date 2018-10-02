@@ -8,73 +8,7 @@ bot.on('ready', () => {
   console.log(`Kitilen initilized.`);
 
 
-  bot.on('guildDelete', guild => {
-  bot.channels.get("495636254432690177")
-const embed = new Discord.RichEmbed()
-   .setAuthor(`Nameless Bot left a server ❎`)
-   .setDescription(`**
-Server name: __${guild.name}__
-Server id: __${guild.id}__
-Server owner: __${guild.owner}__
-Members Count: __${guild.memberCount}__
-Servers Counter : __${client.guilds.size}__**`)
-         .setColor("#f3ae10")
-         .setFooter('Simplioni Bot' , client.user.avatarURL)
-           client.channels.get("495636254432690177").send({embed});
-}
-
-);
-  bot.on('guildCreate', guild => {
-    
-  bot.channels.get("495636254432690177")
-const embed = new Discord.RichEmbed()
-   .setAuthor(`بوتك دخل سيرفر جديد مبروك ✅`)
-   .setDescription(`**
-Server name: __${guild.name}__
-Server id: __${guild.id}__
-Server owner: __${guild.owner}__
-Member Count: __${guild.memberCount}__
-Servers Counter : __${client.guilds.size}__**`)
-         .setColor("#f3ae10")
-         .addField("New Server!")
-         .setFooter('Simplioni Bot' , client.user.avatarURL)
-           client.channels.get("495636254432690177").send({embed});
-}
-
-);
-     bot.on('message',function(message) {
-  if (message.author.bot) return;
-var prefix = "c:";
-                  if(!message.channel.guild) return;
-
-                    if (message.content === prefix + "members") {
- const embed = new Discord.RichEmbed()
-
-    .setDescription(`**Members info :sparkles:
-:green_heart: online:   ${message.guild.members.filter(m=>m.presence.status == 'online').size}
-:heart:  dnd:       ${message.guild.members.filter(m=>m.presence.status == 'dnd').size}
-:yellow_heart:  idle:     ${message.guild.members.filter(m=>m.presence.status == 'idle').size}
-:diamond_shape_with_a_dot_inside:   membersCount:  ${message.guild.memberCount - message.guild.members.filter(m=>m.user.bot).size}
-:bulb: bots: ${message.guild.members.filter(m=>m.user.bot).size}**`)
-         message.channel.send({embed});
-
-    }
-      });
-  bot.on('message', message => {
-if(message.content.startsWith("c:slots")) {
-  let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
-  let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let slots3 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
-  let we;
-  if(slots1 === slots2 && slots2 === slots3) {
-    we = "Win!"
-  } else {
-    we = "Lose!"
-  }
-  message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
-}
-});
+ 
   bot.on("message", message => {
 var prefix = "c:";
  if (message.content === "c:help") {

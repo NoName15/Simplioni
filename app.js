@@ -80,6 +80,13 @@ c:bot $ To display informations about the bot
 c:swears $ View a list of added swears
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 c:add-swear $ To add a swear
+
+`)
+   message.author.sendEmbed(embed)
+   
+     const embed2 = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 c:remove-swear $ To remove a swear
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -110,10 +117,9 @@ c:cointoss $ Throw a coin!
 
 
 Support server : https://discord.gg/cUgYbEr
-`)
-   message.author.sendEmbed(embed)
-   
-   }
+`) 
+     message.author.sendEmbed(embed2)
+     }
    });
  
    bot.on("message", message => {

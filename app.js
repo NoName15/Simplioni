@@ -7,9 +7,31 @@ bot.on('ready', () => {
   bot.user.setGame('c:help | c:invite | Bot By: DzDev99','https://www.twitch.tv/peery13');
   console.log(`Kitilen initilized.`)
   bot.user.setStatus('dnd');
+bot.on('guildMemberAdd', member => {
+    const welcomechannel = member.guild.channels.find('name', 'join-leave')
 
+    var newuserjoinembed = new Discord.RichEmbed()
+      .setColor('00FF00')
+      .setAuthor(member.user.tag + ' has joined server', member.user.displayAvatarURL)
+      .addField(`:inbox_tray: Welcome To The Server ${member.user.tag}`)
+      .setFooter(`User joined`)
+      .setTimestamp()
+      return welcomechannel.send(newuserjoinembed);
+});
+
+bot.on('guildMemberRemove', member => {
+    const goodbyechannel = member.guild.channels.find('name', 'join-leave')
+
+    var newuserjoinembed = new Discord.RichEmbed()
+      .setColor('#FF0000')
+      .setAuthor(member.user.tag + ' has left server', member.user.displayAvatarURL)
+      .addField(`:outbox_tray: Goodbye ${member.user.name} :disappointed_relieved: `)
+      .setFooter(`User left`)
+      .setTimestamp()
+      return goodbyechannel.send(newuserjoinembed);
+});
   bot.on('message', message => {
-        if (message.content.startsWith(prefix + "meme")) {
+        if (message.content.startsWith(prefix + "trumpmeme")) {
     var replys = [
     "https://media.giphy.com/media/xTiTnHXbRoaZ1B1Mo8/giphy.gif",
           "https://media.giphy.com/media/hPPx8yk3Bmqys/giphy.gif",
@@ -200,7 +222,8 @@ c:invite $ Invite the bot
 c:cointoss $ Throw a coin!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 c:uptime $ View the bot uptime!
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+c:trumpmeme $ Gives you some fancy trump memes!
 
 Support server : https://discord.gg/cUgYbEr
 `) 
@@ -296,7 +319,8 @@ c:invite $ دعوة البوت
 c:cointoss $ قلب عملة
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 c:uptime $ يعطيك الوقت اللي البوت كان شغال فيه
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+c:trumpmeme $ يعطيك ميممات ترمب
 
 سيرفر السيبورت : https://discord.gg/cUgYbEr
 `) 
@@ -825,7 +849,7 @@ bot.on('message', message => {
    
     if(command == prefix + 'swears') {// حقوق الفا كودز & عبود
         if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(':no_entry: | You dont have **MANAGE_MESSAGES** Permission!');
-        if(!message.guild.member(client.user).hasPermission('EMBED_LINKS')) return meessage.channel.send(':no_entry: | I dont have **EMBED_LINKS** Permission!');
+        if(!message.guild.member(bot.user).hasPermission('EMBED_LINKS')) return meessage.channel.send(':no_entry: | I dont have **EMBED_LINKS** Permission!');
         if(Swears.length < 1) return message.channel.send(`:no_entry: | No swears words founds! \`\`If you want to add some words type ${prefix}add-swear <SWEAR>\`\``);
         var number = 1;// حقوق الفا كودز & عبود
        

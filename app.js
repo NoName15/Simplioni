@@ -4,8 +4,8 @@ var prefix = "c:";
 const config = require("./config.json")
 
 bot.on('ready', () => {
-  bot.user.setGame('c:help for commands');
-  console.log(`Kitilen initilized.` , 'www.twitch.com/pixelstrue');
+  bot.user.setGame('c:help for commands' , 'www.twitch.com/pixelstrue' )
+  console.log(`Kitilen initilized.`)
   bot.user.setStatus('dnd');
 
 

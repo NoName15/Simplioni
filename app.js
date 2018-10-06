@@ -1107,4 +1107,4 @@ bot.on('message', msg => {
 
 });
 
-bot.login(config.token);
+bot.login(process.env.BOT_TOKEN);

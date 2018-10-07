@@ -4,7 +4,7 @@ var prefix = "c:";
 const config = require("./config.json")
 
 bot.on('ready', () => {
-  bot.user.setGame(`Serving ${client.guilds.size} servers | c:help | By:DzDev99`,'https://www.twitch.tv/peery13');
+  bot.user.setGame(`Serving ${bot.guilds.size} servers | c:help | By:DzDev99`,'https://www.twitch.tv/peery13');
   console.log(`Kitilen initilized.`)
   bot.user.setStatus('dnd');
 bot.on('guildMemberAdd', member => {

@@ -165,7 +165,7 @@ var prefix = "c:";
     message.channel.send({
         embed: ghembed
     })
-}  };
+} ) };
   bot.on("message", message => {
 var prefix = "c:";
  if (message.content === "c:help") {
